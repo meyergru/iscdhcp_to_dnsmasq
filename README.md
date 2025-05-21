@@ -1,12 +1,6 @@
 # iscdhcp_to_dnsmasq
 Scripts to facilitate ISC DHCP and Unbound migration to DNSmasq for OpnSense
 
------------------------------------------------------------------------
-**Caveat**
-Because of recent changes in OpnSense 25.1.7, this will not work as expected, because reservations with MACs are not any longer put into DNS.
-Also, aliases do not work. any more as of 25.1.7. I recommend staying on 25.1.6_4 or go back to ISC DHCP.
-
------------------------------------------------------------------------
 
 You can add DNS names and aliases from Unbound like so from "input.xml", which is your saved config.xml:
 
