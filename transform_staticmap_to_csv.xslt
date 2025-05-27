@@ -8,7 +8,7 @@
 
     <xsl:template match="/">
         <!-- CSV-Kopfzeile -->
-        <xsl:text>host,domain,ip,client_id,hwaddr,lease_time,ignore,set_tag,descr,aliases&#10;</xsl:text>
+        <xsl:text>host,domain,local,ip,client_id,hwaddr,lease_time,ignore,set_tag,descr,aliases&#10;</xsl:text>
 
         <!-- Verarbeite staticmap unter dhcpd/section -->
         <xsl:apply-templates select="//dhcpd/*[name() = $section]/staticmap"/>
@@ -19,6 +19,7 @@
         <xsl:text>,</xsl:text>
         <xsl:value-of select="$domain"/>
         <xsl:text>,</xsl:text>
+        <xsl:text>1,</xsl:text><!-- local -->
         <xsl:value-of select="ipaddr"/>
         <xsl:text>,</xsl:text>
         <xsl:text>,</xsl:text> <!-- client_id leer -->
