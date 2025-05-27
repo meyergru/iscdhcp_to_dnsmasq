@@ -8,7 +8,7 @@
   <!-- Root template -->
   <xsl:template match="/">
     <!-- CSV Header -->
-    <xsl:text>host,domain,ip,client_id,hwaddr,lease_time,ignore,set_tag,descr,aliases&#10;</xsl:text>
+    <xsl:text>host,domain,local,ip,client_id,hwaddr,lease_time,ignore,set_tag,descr,aliases&#10;</xsl:text>
 
     <!-- Process each enabled host -->
     <xsl:for-each select="//unboundplus/hosts/host[enabled='1']">
@@ -26,6 +26,7 @@
       <!-- Output fields -->
       <xsl:value-of select="$host"/><xsl:text>,</xsl:text>
       <xsl:value-of select="$domain"/><xsl:text>,</xsl:text>
+      <xsl:text>1,</xsl:text> <!-- local -->
       <xsl:value-of select="$ip"/><xsl:text>,</xsl:text>
       <xsl:text>,</xsl:text> <!-- client_id -->
       <xsl:text>,</xsl:text> <!-- hwaddr -->
